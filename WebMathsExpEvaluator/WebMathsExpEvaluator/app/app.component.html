@@ -1,0 +1,30 @@
+﻿<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        Expression Evaluator
+    </div>
+    <div class='panel-body'>
+        <div class='table-responsive'>
+            <input [(ngModel)]="inputExpression" />
+            <div style="padding-bottom:10px"><button class="btn btn-primary" (click)="sendValues()">Calculate</button></div>
+            <span id="1" *ngIf="isComputed"> {{ComputedValue}} </span>
+            <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="../../images/loading.gif" width="32" height="32" /> Loading...</div>
+            <div style="padding-bottom:10px"><button class="btn btn-primary" (click)="getHistory()">Show History</button></div>      
+            <table class='table table-striped' *ngIf='isHistory'>
+                <thead>
+                    <tr>
+                        <th>Expression</th>
+                        <th>Value</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let historyItem of history">
+                        <td>{{historyItem.Key}}</td>
+                        <td>{{historyItem.Value}}</td>                       
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        </div>                  
+</div>
